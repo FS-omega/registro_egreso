@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-import { environment } from '../../environments/environment'
+//se corrige la direccion de enviroments
+import { environment } from '../../environments/environment.development'
 
 @Injectable({
   providedIn: 'root'
