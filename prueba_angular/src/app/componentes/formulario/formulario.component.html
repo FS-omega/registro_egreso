@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <div class="container">
     <div>
         <h1>Formulario</h1>
@@ -21,10 +27,6 @@
             </div>
         </div>
         <!-- FIN INPUT PARA Campo1-->
-<<<<<<< HEAD
-=======
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
->>>>>>> 46b0c4cca4a97372ca842c9435f3724187e0bb66
         <!-- INPUT PARA Campo2-->
         <div class="form-group">
             <div>
@@ -39,6 +41,58 @@
             </div>
         </div>
         <!-- FIN INPUT PARA CAMPO2-->
+        <!-- INPUT PARA Campo3-->
+        <div class="form-group">
+            <div>
+                <label>Campo3</label>
+                <!-- INPUT para el campo rut-->
+                <input
+                    type="text"
+                    placeholder="Ingresa tu Rut"
+                    formControlName ="campo3"
+                >
+                <small *ngIf=" formularioReactivo.campo3?.errors?.required && formularioReactivo.campo3.touched ">
+                    El rut es requerido en el campo
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO3-->
+
+        <!-- INPUT PARA Campo4-->
+        <div class="form-group">
+            <div>
+                <label>Campo4</label>
+                <!-- INPUT para el campo correo-->
+                <input
+                    type="text"
+                    placeholder="Ingresa tu correo"
+                    formControlName ="campo4"
+                >
+                <small *ngIf=" formularioReactivo.campo5?.errors?.required && formularioReactivo.campo5.touched ">
+                    El correo es necesario
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO4-->
+        <!-- INPUT PARA Campo5-->
+        <div class="form-group">
+            <div>
+                <label>Campo5</label>
+                <!-- INPUT para el campo contraseña-->
+                <input
+                    type="password"
+                    placeholder="Ingresa tu contraseña"
+                    formControlName ="campo3"
+                >
+                <small *ngIf=" formularioReactivo.campo5?.errors?.required && formularioReactivo.campo5.touched ">
+                    la contraseña es requerida 
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO5-->
+
+
+
 
         <!-- BOTÓN-->
         <div class="form-group">
@@ -63,6 +117,9 @@
             <th>ID</th>
             <th scope="col">Campo1</th>
             <th scope="col">Campo2</th>
+            <th scope="col">Campo3</th>
+            <th scope="col">Campo4</th>
+            <th scope="col">campo5</th>
             <th>Accion</th>
           </tr>
         </thead>
@@ -71,6 +128,9 @@
             <td>{{dato._id}}</td>
             <td>{{dato.campo1}}</td>
             <td>{{dato.campo2}}</td>
+            <td>{{dato.campo3}}</td>
+            <td>{{dato.campo4}}</td>
+            <td>{{dato.campo5}}</td>
             <td><button (click)="eliminar(dato._id)">Eliminar</button></td>
           </tr>
           

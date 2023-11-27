@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from 'src/app/servicios/formulario.service';
-//import { FormularioService } from '../../servicios/formulario.service'
+//import { FormularioService } from '../../servicios/formulario.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -13,7 +13,10 @@ export class FormularioComponent implements OnInit {
   registro:any;
   registro_enviar = {
     campo1:null,
-    campo2:null
+    campo2:null,
+    campo3:null,
+    campo4:null,
+    campo5:null
   }
   registros:any;
   constructor(
@@ -24,6 +27,9 @@ export class FormularioComponent implements OnInit {
     this.formulario = this.fb.group({
       campo1:['',[Validators.required]],
       campo2:[''],
+      campo3:[''],
+      campo4:[''],
+      campo5:['']
     });
   }
 
@@ -35,6 +41,9 @@ export class FormularioComponent implements OnInit {
   botonEnviar(){
     this.registro_enviar.campo1 = this.formularioReactivo.campo1.value
     this.registro_enviar.campo2 = this.formularioReactivo.campo2.value
+    this.registro_enviar.campo3 = this.formularioReactivo.campo3.value
+    this.registro_enviar.campo4 = this.formularioReactivo.campo4.value
+    this.registro_enviar.campo5 = this.formularioReactivo.campo5.value
 
     this.formularioSrv.crear_registro(this.registro_enviar).subscribe(
       (response:any) => {
