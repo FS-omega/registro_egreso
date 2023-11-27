@@ -12,11 +12,11 @@ export class FormularioComponent implements OnInit {
   formulario:any;
   registro:any;
   registro_enviar = {
-    campo1:null,
-    campo2:null,
+    campo1:String,
+    campo2:String,
     campo3:null,
-    campo4:null,
-    campo5:null
+    campo4:String,
+    campo5:String
   }
   registros:any;
   constructor(
@@ -26,8 +26,8 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = this.fb.group({
       campo1:['',[Validators.required]],
-      campo2:[''],
-      campo3:[''],
+      campo2:['',[Validators.required]],
+      campo3:[''[Validators.required]], 
       campo4:[''],
       campo5:['']
     });
