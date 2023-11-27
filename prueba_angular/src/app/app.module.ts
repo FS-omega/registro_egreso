@@ -7,12 +7,14 @@ import { FormularioComponent } from './componentes/formulario/formulario.compone
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { EgresosComponent } from '../app/componentes/egresos/egresos.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioComponent
+    FormularioComponent,
+    EgresosComponent
   ],
   imports: [
     BrowserModule,
