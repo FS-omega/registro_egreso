@@ -12,7 +12,11 @@ export class EgresosComponent {
   constructor(
     private http:HttpClient
   ){}
+  crear_egreso(datos:any){
+    return this.http.post(`${this.url_backend+'crear-egreso'}`,datos)
+  }
   obtener_egresos (){
     return this.http.get(`${this.url_backend+"/obtener-egresos"}`)
   }
+
 }
