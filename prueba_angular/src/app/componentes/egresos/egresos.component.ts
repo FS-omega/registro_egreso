@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './egresos.component.html',
   styleUrls: ['./egresos.component.css']
 })
-export class EgresosComponent {
-constructor(private ) 
-}
+export class EgresosComponent {}
