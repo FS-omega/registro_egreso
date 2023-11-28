@@ -8,7 +8,7 @@
     <div>
         <h1>Formulario</h1>
     </div>
-    <form [formGroup]="formulario">
+    <form  actio="../egresos/egresos.component.html" [formGroup]="formulario">
         <!-- INPUT PARA Campo1-->
         <div class="form-group">    
             <div>
@@ -38,7 +38,7 @@
                     formControlName ="campo2"
                 >
                 <small *ngIf=" formularioReactivo.campo2?.errors?.required && formularioReactivo.campo2.touched ">
-                    El nombre es requerido
+                    El apellido es requerido
                 </small>
             </div>
         </div>
@@ -84,7 +84,7 @@
                 <input
                     type="password"
                     placeholder="Ingresa tu contraseña"
-                    formControlName ="campo3"
+                    formControlName ="campo5"
                 >
                 <small *ngIf=" formularioReactivo.campo5?.errors?.required && formularioReactivo.campo5.touched ">
                     la contraseña es requerida 
