@@ -45,7 +45,7 @@ export class FormularioComponent implements OnInit {
     this.registro_enviar.campo4 = this.formularioReactivo.campo4.value;
     this.registro_enviar.campo5 = this.formularioReactivo.campo5.value;
 
-    this.formularioSrv.crear_registro(this.registro_enviar).subscribe(
+    this.formularioSrv.crear_usuario(this.registro_enviar).subscribe(
       (response:any) => {
         this.registro = response.registro;
         console.log("Los datos recibidos son")
@@ -57,8 +57,8 @@ export class FormularioComponent implements OnInit {
     console.log(this.formularioReactivo);
   }
 
-  obtenerRegistro(){
-    this.formularioSrv.obtener_registros().subscribe(
+  obtenerusuario(){
+    this.formularioSrv.obtener_usuario().subscribe(
       (response:any) => {
         this.registros = response.registros
         console.log(this.registros);
