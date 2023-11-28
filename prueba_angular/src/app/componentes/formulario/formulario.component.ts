@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormularioService } from 'src/app/servicios/formulario.service';
+import { FormularioService } from 'src/app/servicios/formulario/formulario.service';
 //import { FormularioService } from '../../servicios/formulario.service';
 @Component({
   selector: 'app-formulario',
