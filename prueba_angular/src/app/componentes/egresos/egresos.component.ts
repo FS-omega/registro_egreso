@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./egresos.component.css']
 })
 export class EgresosComponent {
+  
 
 }
