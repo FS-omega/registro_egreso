@@ -14,7 +14,7 @@ export class FormularioComponent implements OnInit {
   registro_enviar = {
     campo1:String,
     campo2:String,
-    campo3:null,
+    campo3:String,
     campo4:String,
     campo5:String
   }
@@ -27,9 +27,9 @@ export class FormularioComponent implements OnInit {
     this.formulario = this.fb.group({
       campo1:['',[Validators.required]],
       campo2:['',[Validators.required]],
-      campo3:[''[Validators.required]], 
-      campo4:[''],
-      campo5:['']
+      campo3:['',[Validators.required]], 
+      campo4:['',[Validators.required]],
+      campo5:['',[Validators.required]]
     });
   }
 
@@ -39,11 +39,11 @@ export class FormularioComponent implements OnInit {
   }
 
   botonEnviar(){
-    this.registro_enviar.campo1 = this.formularioReactivo.campo1.value
-    this.registro_enviar.campo2 = this.formularioReactivo.campo2.value
-    this.registro_enviar.campo3 = this.formularioReactivo.campo3.value
-    this.registro_enviar.campo4 = this.formularioReactivo.campo4.value
-    this.registro_enviar.campo5 = this.formularioReactivo.campo5.value
+    this.registro_enviar.campo1 = this.formularioReactivo.campo1.value;
+    this.registro_enviar.campo2 = this.formularioReactivo.campo2.value;
+    this.registro_enviar.campo3 = this.formularioReactivo.campo3.value;
+    this.registro_enviar.campo4 = this.formularioReactivo.campo4.value;
+    this.registro_enviar.campo5 = this.formularioReactivo.campo5.value;
 
     this.formularioSrv.crear_registro(this.registro_enviar).subscribe(
       (response:any) => {
@@ -54,7 +54,7 @@ export class FormularioComponent implements OnInit {
         console.log(error)
       }
     )
-    //console.log(this.formularioReactivo);
+    console.log(this.formularioReactivo);
   }
 
   obtenerRegistro(){
