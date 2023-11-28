@@ -13,10 +13,10 @@ export class FormularioService {
     private http:HttpClient
   ) { }
 
-  crear_registro(datos:any){
+  crear_usuario(datos:any){
     return this.http.post(`${this.url_backend+'/crear-usuario' }`,datos)
   }
-  obtener_registros(){
+  obtener_usuario(){
     return this.http.get(`${this.url_backend+'/obtener-usuarios' }`)
 
   }
