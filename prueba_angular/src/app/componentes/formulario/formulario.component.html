@@ -37,7 +37,9 @@
                     placeholder="Ingresa tu apellido"
                     formControlName ="campo2"
                 >
-                <!-- Mostrar el error para el campo apellido-->
+                <small *ngIf=" formularioReactivo.campo2?.errors?.required && formularioReactivo.campo2.touched ">
+                    El nombre es requerido
+                </small>
             </div>
         </div>
         <!-- FIN INPUT PARA CAMPO2-->
@@ -68,7 +70,7 @@
                     placeholder="Ingresa tu correo"
                     formControlName ="campo4"
                 >
-                <small *ngIf=" formularioReactivo.campo5?.errors?.required && formularioReactivo.campo5.touched ">
+                <small *ngIf=" formularioReactivo.campo4?.errors?.required && formularioReactivo.campo4.touched ">
                     El correo es necesario
                 </small>
             </div>
@@ -109,35 +111,9 @@
         
     
     </form>
-    <button (click)="obtenerRegistro()"  >Obtener Registros</button>
-
-    <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th scope="col">Campo1</th>
-            <th scope="col">Campo2</th>
-            <th scope="col">Campo3</th>
-            <th scope="col">Campo4</th>
-            <th scope="col">campo5</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let dato of registros">
-            <td>{{dato._id}}</td>
-            <td>{{dato.campo1}}</td>
-            <td>{{dato.campo2}}</td>
-            <td>{{dato.campo3}}</td>
-            <td>{{dato.campo4}}</td>
-            <td>{{dato.campo5}}</td>
-            <td><button (click)="eliminar(dato._id)">Eliminar</button></td>
-          </tr>
+    
           
-          
-        </tbody>
-      </table>
-
+       
 </div>
 
 
