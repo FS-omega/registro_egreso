@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { EgresosService } from 'src/app/servicios/egresos/egresos.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -13,11 +14,11 @@ export class EgresosComponent{
   
   constructor(
     private egreso: EgresosComponent,
-    private fb: formbuilder
+            fb: FormBuilder
   ){}
-  obteneregreso(){
-    this.
-  }
+  //obteneregreso(){
+    //this.
+  //}
 
 
 }
