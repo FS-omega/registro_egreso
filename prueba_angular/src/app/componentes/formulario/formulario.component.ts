@@ -54,7 +54,7 @@ export class FormularioComponent implements OnInit {
         this.registro = response.registro;
         console.log("Los datos recibidos son", this.registro);
 
-        this.router.navigate(['../egresos'], { relativeTo: this.route });
+        this.router.navigate(['../egresos/egresos.component.html'], { relativeTo: this.route });
       },
       error => {
         console.log(error);
