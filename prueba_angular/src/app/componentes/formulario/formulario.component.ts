@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from 'src/app/servicios/formulario/formulario.service';
-//import { FormularioService } from '../../servicios/formulario.service';
+import { Router, ActivatedRoute } from '@angular/router'; // Agrega ActivatedRoute
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -9,36 +10,39 @@ import { FormularioService } from 'src/app/servicios/formulario/formulario.servi
 })
 export class FormularioComponent implements OnInit {
 
-  formulario:any;
-  registro:any;
+  formulario: any;
+  registro: any;
   registro_enviar = {
-    campo1:String,
-    campo2:String,
-    campo3:String,
-    campo4:String,
-    campo5:String
-  }
-  registros:any;
+    campo1: '',
+    campo2: '',
+    campo3: '',
+    campo4: '',
+    campo5: ''
+  };
+  registros: any;
+
   constructor(
-    private formularioSrv:FormularioService,
-    private fb:FormBuilder ) { }
+    private formularioSrv: FormularioService,
+    private fb: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute // Agrega ActivatedRoute al constructor
+  ) { }
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
-      campo1:['',[Validators.required]],
-      campo2:['',[Validators.required]],
-      campo3:['',[Validators.required]], 
-      campo4:['',[Validators.required]],
-      campo5:['',[Validators.required]]
+      campo1: ['', [Validators.required]],
+      campo2: ['', [Validators.required]],
+      campo3: ['', [Validators.required]],
+      campo4: ['', [Validators.required]],
+      campo5: ['', [Validators.required]]
     });
   }
 
-  //obtener los las validaciones
-  get formularioReactivo(){
+  get formularioReactivo() {
     return this.formulario.controls;
   }
 
-  botonEnviar(){
+  botonEnviar() {
     this.registro_enviar.campo1 = this.formularioReactivo.campo1.value;
     this.registro_enviar.campo2 = this.formularioReactivo.campo2.value;
     this.registro_enviar.campo3 = this.formularioReactivo.campo3.value;
@@ -46,30 +50,31 @@ export class FormularioComponent implements OnInit {
     this.registro_enviar.campo5 = this.formularioReactivo.campo5.value;
 
     this.formularioSrv.crear_usuario(this.registro_enviar).subscribe(
-      (response:any) => {
+      (response: any) => {
         this.registro = response.registro;
-        console.log("Los datos recibidos son")
-        console.log(this.registro)
-      }, error =>{
-        console.log(error)
+        console.log("Los datos recibidos son", this.registro);
+
+        this.router.navigate(['../egresos'], { relativeTo: this.route });
+      },
+      error => {
+        console.log(error);
       }
-    )
-    console.log(this.formularioReactivo);
+    );
   }
 
-  obtenerusuario(){
+  obtenerUsuario() {
     this.formularioSrv.obtener_usuario().subscribe(
-      (response:any) => {
-        this.registros = response.registros
+      (response: any) => {
+        this.registros = response.registros;
         console.log(this.registros);
-
-      }, error => {
-        console.log(error)
+      },
+      error => {
+        console.log(error);
       }
-    )
+    );
   }
 
-  eliminar(id:any){
-    console.log(id)
+  eliminar(id: any) {
+    console.log(id);
   }
 }
