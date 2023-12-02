@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from 'src/app/servicios/formulario/formulario.service';
-import { Router, ActivatedRoute } from '@angular/router'; // Agrega ActivatedRoute
+import { Router, ActivatedRoute } from '@angular/router'; 
 
 @Component({
   selector: 'app-formulario',
@@ -25,7 +25,7 @@ export class FormularioComponent implements OnInit {
     private formularioSrv: FormularioService,
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute // Agrega ActivatedRoute al constructor
+    private route: ActivatedRoute 
   ) { }
 
   ngOnInit(): void {
