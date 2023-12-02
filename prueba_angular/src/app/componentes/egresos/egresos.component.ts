@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
 })
 
 export class EgresosComponent implements OnInit {
-  registros: any[]=[]// Ajusta el tipo según lo que esperes recibir
+  registros: any[]=[]//aca colocas los parametros que queras mostrar o la wa que quieras validar wazaaaaa
 
   constructor(
     private egresosService: EgresosService,
