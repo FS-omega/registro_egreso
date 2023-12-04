@@ -1,0 +1,11 @@
+h1{
+
+    text-align: center;
+    margin: 1%;
+    background-color: rgb(162, 168, 168);
+    color: rgb(35, 31, 31);
+}
+button{
+    padding: 1%;
+    margin: 1%;
+}

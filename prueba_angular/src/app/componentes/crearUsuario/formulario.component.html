@@ -1,14 +1,48 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
+    <div class="container-fluid" >
+       
+        <a class="navbar-brand" id="cft" href="#">CFT</a>   
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://cftestatalaricayparinacota.cl">inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://cftestatalaricayparinacota.cl/areas-formativas-2024/">carreras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="https://cftestatalaricayparinacota.cl/admision-2/">admision</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
 <div class="container">
     <div>
         <h1>Formulario</h1>
     </div>
     <form  action="../egresos/egresos.component.html" [formGroup]="formulario" method="POST">     
           <!-- INPUT PARA Campo1-->
-        <div class="form-group">
+          <div class="form-group">
             <div>
-                <label>nombre: </label>
-                <!-- INPUT para el campo nombre-->
-                <input type="text" placeholder="Ingresa tu nombre" formControlName="nombre">
+                <label for="nombre" class="form-label">nombre</label>
+                <input type="text" id="nombre" class="form-control" aria-describedby="passwordHelpBlock" formControlName="nombre">
+
+
                 <!-- Mostrar el error para el campo nombre-->
                 <small *ngIf=" formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched ">
                     El nombre es requerido
@@ -19,9 +53,9 @@
         <!-- INPUT PARA Campo2-->
         <div class="form-group">
             <div>
-                <label>apellido: </label>
-                <!-- INPUT para el campo apellido-->
-                <input type="text" placeholder="Ingresa tu apellido" formControlName="apellido">
+                <label for="apellido" class="form-label">Password</label>
+                <input type="text" id="apellido" class="form-control" aria-describedby="passwordHelpBlock" formControlName="apellido">
+                
                 <small *ngIf=" formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched ">
                     El apellido es requerido
                 </small>
@@ -31,9 +65,9 @@
         <!-- INPUT PARA Campo3-->
         <div class="form-group">
             <div>
-                <label>Rut: </label>
-                <!-- INPUT para el campo rut-->
-                <input type="text" placeholder="Ingresa tu Rut" formControlName="rut">
+                <label for="rut" class="form-label">rut</label>
+                <input type="number" id="rut" class="form-control" aria-describedby="passwordHelpBlock" formControlName="rut">
+
                 <small *ngIf=" formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched ">
                     El rut es requerido en el campo
                 </small>
@@ -44,9 +78,9 @@
         <!-- INPUT PARA Campo4-->
         <div class="form-group">
             <div>
-                <label>Correo: </label>
-                <!-- INPUT para el campo correo-->
-                <input type="text" placeholder="Ingresa tu correo" formControlName="correo">
+                <label for="correo" class="form-label">correo</label>
+                <input type="email" id="correo" class="form-control" aria-describedby="passwordHelpBlock" formControlName="correo">
+
                 <small *ngIf=" formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched ">
                     El correo es necesario
                 </small>
@@ -56,9 +90,9 @@
         <!-- INPUT PARA Campo5-->
         <div class="form-group">
             <div>
-                <label>contraseña</label>
-                <!-- INPUT para el campo contraseña-->
-                <input type="password" placeholder="Ingresa tu contraseña" formControlName="password">
+                <label for="contraseña" class="form-label">Password</label>
+                <input type="password" id="contraseña" class="form-control" aria-describedby="passwordHelpBlock" formControlName="password">
+
                   <!-- 
                 <small *ngIf=" formularioReactivo.password?.errors?.required && formularioReactivo.password.touched ">
                     la contraseña es requerida
@@ -74,7 +108,7 @@
         <div class="form-group">
             <div>
                 <button 
-                class="btn btn-primary" 
+                class="btn btn-dark" 
                 type="submit"
                 (click)="botonEnviar()"
                 [disabled]="!formulario.valid"
