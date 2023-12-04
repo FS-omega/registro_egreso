@@ -12,7 +12,8 @@ const routes: Routes = [
   {
     path: 'crearEgresos',
     component: EgresosComponent
-  }
+  },
+  { path: 'crearUsuario/egresos', component: EgresosComponent }
 ];
 
 @NgModule({
