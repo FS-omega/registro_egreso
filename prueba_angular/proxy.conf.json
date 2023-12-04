@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "http://backend-dos-campos-cft.koyeb.app",
+      "secure": false
+    }
+  }

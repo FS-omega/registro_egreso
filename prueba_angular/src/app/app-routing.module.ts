@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormularioComponent } from './componentes/formulario/formulario.component';
-import { EgresosComponent } from '../app/componentes/egresos/egresos.component';
+import { FormularioComponent } from './componentes/crearUsuario/formulario.component';
+import { EgresosComponent } from './componentes/crearEgresos/egresos.component';
+
 
 const routes: Routes = [
   {
-    path: 'formulario',
+    path: 'crearUsuario',
     component: FormularioComponent
   },
   {
-    path: 'egresos',
+    path: 'crearEgresos',
     component: EgresosComponent
   }
 ];
