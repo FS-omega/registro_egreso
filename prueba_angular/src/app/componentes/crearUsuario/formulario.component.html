@@ -1,0 +1,89 @@
+<div class="container">
+    <div>
+        <h1>Formulario</h1>
+    </div>
+    <form  action="../egresos/egresos.component.html" [formGroup]="formulario" method="POST">     
+          <!-- INPUT PARA Campo1-->
+        <div class="form-group">
+            <div>
+                <label>nombre: </label>
+                <!-- INPUT para el campo nombre-->
+                <input type="text" placeholder="Ingresa tu nombre" formControlName="nombre">
+                <!-- Mostrar el error para el campo nombre-->
+                <small *ngIf=" formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched ">
+                    El nombre es requerido
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA Campo1-->
+        <!-- INPUT PARA Campo2-->
+        <div class="form-group">
+            <div>
+                <label>apellido: </label>
+                <!-- INPUT para el campo apellido-->
+                <input type="text" placeholder="Ingresa tu apellido" formControlName="apellido">
+                <small *ngIf=" formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched ">
+                    El apellido es requerido
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO2-->
+        <!-- INPUT PARA Campo3-->
+        <div class="form-group">
+            <div>
+                <label>Rut: </label>
+                <!-- INPUT para el campo rut-->
+                <input type="text" placeholder="Ingresa tu Rut" formControlName="rut">
+                <small *ngIf=" formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched ">
+                    El rut es requerido en el campo
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO3-->
+
+        <!-- INPUT PARA Campo4-->
+        <div class="form-group">
+            <div>
+                <label>Correo: </label>
+                <!-- INPUT para el campo correo-->
+                <input type="text" placeholder="Ingresa tu correo" formControlName="correo">
+                <small *ngIf=" formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched ">
+                    El correo es necesario
+                </small>
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO4-->
+        <!-- INPUT PARA Campo5-->
+        <div class="form-group">
+            <div>
+                <label>contraseña</label>
+                <!-- INPUT para el campo contraseña-->
+                <input type="password" placeholder="Ingresa tu contraseña" formControlName="password">
+                  <!-- 
+                <small *ngIf=" formularioReactivo.password?.errors?.required && formularioReactivo.password.touched ">
+                    la contraseña es requerida
+                </small>-->
+            </div>
+        </div>
+        <!-- FIN INPUT PARA CAMPO5-->
+
+
+
+
+        <!-- BOTÓN-->
+        <div class="form-group">
+            <div>
+                <button 
+                class="btn btn-primary" 
+                type="submit"
+                (click)="botonEnviar()"
+                [disabled]="!formulario.valid"
+                >Enviar</button>
+            </div>
+        </div>
+        <!-- FIN BOTÓN-->
+
+
+    </form>
+
+</div>
