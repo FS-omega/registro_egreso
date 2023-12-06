@@ -10,8 +10,8 @@ import { FormBuilder } from '@angular/forms';
 })
 
 export class EgresosComponent implements OnInit {
-  registros: any[]=[]//aca colocas los parametros que queras mostrar o la wa que quieras validar wazaaaaa
-
+  registros:any
+  
   constructor(
     private egresosService: EgresosService,
     private fb: FormBuilder

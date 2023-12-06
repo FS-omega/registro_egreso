@@ -17,10 +17,10 @@ export class FormularioComponent implements OnInit {
     nombre: '',
     apellido: '',
     rut: null,
-    correo: '',
+    correo:'',
     password: ''
   };
-  registros: any;
+  
 
   constructor(
     private formularioSrv: FormularioService,
@@ -68,17 +68,7 @@ export class FormularioComponent implements OnInit {
     }
   }
 
-  obtenerUsuario() {
-    this.formularioSrv.obtener_usuario().subscribe(
-      (response: any) => {
-        this.registros = response.registros;
-        console.log(this.registros);
-      },
-      error => {
-        console.log(error);
-      }
-    );
-  }
+  
 
   eliminar(id: any) {
     console.log(id);

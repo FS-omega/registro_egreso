@@ -29,22 +29,22 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th scope="col">Campo1</th>
-            <th scope="col">Campo2</th>
-            <th scope="col">Campo3</th>
-            <th scope="col">Campo4</th>
-            <th scope="col">campo5</th>
+            <th scope="col">nombre</th>
+            <th scope="col">apellido</th>
+            <th scope="col">rut</th>
+            <th scope="col">correo</th>
+            <th scope="col">password</th>
             <th>Accion</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let dato of registros">
             <td>{{dato._id}}</td>
-            <td>{{dato.campo1}}</td>
-            <td>{{dato.campo2}}</td>
-            <td>{{dato.campo3}}</td>
-            <td>{{dato.campo4}}</td>
-            <td>{{dato.campo5}}</td>
+            <td>{{dato.nombre}}</td>
+            <td>{{dato.apellido}}</td>
+            <td>{{dato.rut}}</td>
+            <td>{{dato.correo}}</td>
+            <td>{{dato.password}}</td>
           </tr>
           
           
