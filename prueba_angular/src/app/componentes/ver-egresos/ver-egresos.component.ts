@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { EgresosService } from 'app/servicios/crearEgresos/egresos.service';
+import { VerEgresosService } from 'app/servicios/ver-egresos/ver-egresos.service';
 @Component({
   selector: 'app-ver-egresos',
   templateUrl: './ver-egresos.component.html',
@@ -10,7 +10,7 @@ export class VerEgresosComponent {
   registros: any[]=[]//aca colocas los parametros que queras mostrar o la wa que quieras validar wazaaaaa
 
   constructor(
-    private egresosService: EgresosService,
+    private VerEgresosService: VerEgresosService,
     private fb: FormBuilder
   ) {}
 
@@ -19,6 +19,6 @@ export class VerEgresosComponent {
   }
 
   obteneregreso() {
-    this.egresosService.obtener_egresos().subscribe()
+    this.VerEgresosService.obtener_egresos().subscribe()
 }
 }
