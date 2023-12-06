@@ -2,13 +2,11 @@
 
 
 
-<div>
-  <h1> obtener egresos</h1>
 
-  <!--<div>
+  <div>
     <h1>Crear Egreso</h1>
     
-    <form [formGroup]="egreso_Form">
+    <form [formGroup]="egreso_Formulario">
       <label for="descripcion">Descripción:</label>
       <input type="text" id="descripcion" formControlName="descripcion" />
   
@@ -21,36 +19,6 @@
   
       <button type="button" (click)="crearEgreso()">Crear Egreso</button>
     </form>
-  </div>-->
+  </div>
   
-    <button class="btn btn-primary" (click)="obteneregreso()"  >Obtener Registros</button>
-
-    <table class="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th scope="col">nombre</th>
-            <th scope="col">apellido</th>
-            <th scope="col">rut</th>
-            <th scope="col">correo</th>
-            <th scope="col">password</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let dato of registros">
-            <td>{{dato._id}}</td>
-            <td>{{dato.nombre}}</td>
-            <td>{{dato.apellido}}</td>
-            <td>{{dato.rut}}</td>
-            <td>{{dato.correo}}</td>
-            <td>{{dato.password}}</td>
-          </tr>
-          
-          
-        </tbody>
-      </table>
-
-
-</div>
 

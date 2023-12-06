@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormularioComponent } from './componentes/crearUsuario/formulario.component';
 import { EgresosComponent } from './componentes/crearEgresos/egresos.component';
 import { VerUsuariosComponent } from './componentes/ver-usuarios/ver-usuarios.component';
+import { VerEgresosComponent } from './componentes/ver-egresos/ver-egresos.component';
 
 
 const routes: Routes = [
@@ -14,8 +15,10 @@ const routes: Routes = [
     path: 'crearEgresos',
     component: EgresosComponent
   },
-  { path: 'crearUsuario/egresos', component: EgresosComponent },
-  {path:'verUsuario',component:VerUsuariosComponent}
+{path:'verEgresos',component:VerEgresosComponent},
+  
+  {path:'verUsuario',component:VerUsuariosComponent},
+  { path: 'crearUsuario/verUsuario', component: VerUsuariosComponent }
 ];
 
 @NgModule({
