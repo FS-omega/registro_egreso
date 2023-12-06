@@ -1,14 +1,15 @@
 import { TestBed } from '@angular/core/testing';
+import { VerEgresoService } from './ver-egresos.service';
 
-import { VerEgresosService } from './ver-egresos.service';
 
 describe('VerEgresosService', () => {
-  let service: VerEgresosService;
+  let service: VerEgresoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(VerEgresosService);
+    service = TestBed.inject(VerEgresoService);
   });
+  
 
   it('should be created', () => {
     expect(service).toBeTruthy();
