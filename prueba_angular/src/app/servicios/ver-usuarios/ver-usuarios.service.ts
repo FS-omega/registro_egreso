@@ -1,15 +1,16 @@
-// ver-usuario.service.ts
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class VerUsuarioService {
-  private datosUsuario = new BehaviorSubject<any>(null);
-  datosUsuario$ = this.datosUsuario.asObservable();
+export class VerUsuariosService {
+  url_backend = environment.url_backend + '/usuario';
 
-  enviarDatosUsuario(datos: any) {
-    this.datosUsuario.next(datos);
+  constructor(private http: HttpClient) {}
+
+  obtenerUsuarios() {
+    return this.http.get(`${this.url_backend}/obtener-usuarios`);
   }
 }

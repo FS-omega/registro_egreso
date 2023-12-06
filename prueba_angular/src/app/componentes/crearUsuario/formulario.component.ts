@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { FormularioService } from '../../servicios/crearUsuario/formulario.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { VerUsuarioService } from 'app/servicios/ver-usuarios/ver-usuarios.service';
+import { VerUsuariosService } from 'app/servicios/ver-usuarios/ver-usuarios.service';
 
 @Component({
   selector: 'app-formulario',
@@ -29,7 +29,7 @@ export class FormularioComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private VerUsuarios:VerUsuarioService
+    private VerUsuarios:VerUsuariosService
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class FormularioComponent implements OnInit {
           (response: any) => {
             this.registro = response.usuario;
             console.log("Los datos recibidos son", this.registro);
-            this.VerUsuarios.enviarDatosUsuario(this.registro);
+            this.VerUsuarios.obtenerUsuarios();
 
             
              this.router.navigate(['verUsuario'], { relativeTo: this.route });

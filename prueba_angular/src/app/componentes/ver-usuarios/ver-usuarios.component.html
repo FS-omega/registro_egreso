@@ -1,11 +1,11 @@
-<!-- ver-usuario.component.html -->
-
-<div *ngFor="let user of usuario | keyvalue">
-    <p>{{ usuario.nombre }}</p> 
-    <p> {{ usuario.apellido }}</p>
-    <p>{{usuario.rut}}</p>
-    <p>{{usuario.email}}</p>
-    <p>{{usuario.password}}</p>
-    <p>html de consultas por consola:</p>
-  </div>
-  
+<!-- ver-usuarios.component.html -->
+<div *ngIf="ultimoUsuario">
+  <h2>Último Usuario Agregado</h2>
+  <p>Nombre: {{ ultimoUsuario.nombre }}</p>
+  <p>Apellido: {{ ultimoUsuario.apellido }}</p>
+  <p>Correo: {{ ultimoUsuario.correo }}</p>
+ 
+</div>
+<div *ngIf="!ultimoUsuario">
+  <p>No hay usuarios disponibles.</p>
+</div>
