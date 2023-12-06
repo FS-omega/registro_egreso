@@ -1,9 +1,15 @@
+// ver-usuario.service.ts
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class VerUsuariosService {
+export class VerUsuarioService {
+  private datosUsuario = new BehaviorSubject<any>(null);
+  datosUsuario$ = this.datosUsuario.asObservable();
 
-  constructor() { }
+  enviarDatosUsuario(datos: any) {
+    this.datosUsuario.next(datos);
+  }
 }
