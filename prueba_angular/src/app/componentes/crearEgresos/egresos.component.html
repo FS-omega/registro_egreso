@@ -7,15 +7,25 @@
     <h1>Crear Egreso</h1>
     
     <form [formGroup]="egreso_Formulario">
-      <label for="descripcion">Descripción:</label>
+      <label for="descripcion" >Descripción:</label>
       <input type="text" id="descripcion" formControlName="descripcion" />
-  
+      <div *ngIf="egreso_Formulario.controls['descripcion'].hasError('required') && egreso_Formulario.controls['descripcion'].touched">
+        La descripción es requerida.
+      </div>
       <label for="precio">Precio:</label>
       <input type="number" id="precio" formControlName="precio" />
-  
+      <div *ngIf="egreso_Formulario.controls['precio'].hasError('required') && egreso_Formulario.controls['precio'].touched">
+        El precio es requerido.
+      </div>
+      >
       
       <label for="id_usuario">ID de Usuario:</label>
       <input type="text" id="id_usuario" formControlName="id_usuario" />
+      <div *ngIf="egreso_Formulario.controls['id_usuario'].hasError('required') && egreso_Formulario.controls['id_usuario'].touched">
+        El ID de usuario es requerido.
+      </div>
+
+      
   
       <button type="button" (click)="crearEgreso()">Crear Egreso</button>
     </form>
