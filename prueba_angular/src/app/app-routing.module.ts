@@ -22,6 +22,9 @@ const routes: Routes = [
   },
   { 
     path: 'crearUsuario/verUsuario', component: VerUsuariosComponent 
+  },
+  {
+    path:'verEgresos',component:VerEgresosComponent
   }
 ];
 

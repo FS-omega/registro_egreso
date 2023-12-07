@@ -2,28 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { EgresosService } from '../../servicios/crearEgresos/egresos.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';  // Importa el Router
 
 @Component({
   selector: 'app-egresos',
   templateUrl: './egresos.component.html',
   styleUrls: ['./egresos.component.css']
 })
-export class EgresosComponent  {
+export class EgresosComponent implements OnInit {
  
   egreso_Formulario: FormGroup;
 
   constructor(
     private egresosService: EgresosService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router  // Inyecta el Router
   ) {
     this.egreso_Formulario = this.fb.group({
       descripcion: ['', Validators.required],
-      precio: [null, Validators.required],
+      precio: ['', Validators.required],
       id_usuario: ['', Validators.required],
     });
   }
 
- 
+  ngOnInit(): void {
+    // Puedes agregar lógica de inicialización si es necesario
+  }
 
   crearEgreso() {
     if (this.egreso_Formulario.valid) {
@@ -32,7 +36,9 @@ export class EgresosComponent  {
       this.egresosService.crear_egreso(formData).subscribe(
         (response) => {
           console.log('Egreso creado con éxito:', response);
-         
+          
+          // Después de crear el egreso, navega a la vista de ver-egresos
+          this.router.navigate(['verEgresos']);
         },
         (error: HttpErrorResponse) => {
           console.error('Error al crear el egreso:', error);

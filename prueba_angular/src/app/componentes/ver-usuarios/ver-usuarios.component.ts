@@ -30,8 +30,6 @@ export class VerUsuariosComponent implements OnInit {
       }
     );
 
-    setTimeout(() => {
-      this.ultimoUsuario = this.usuarios[this.usuarios.length - 1];
-    }, 500); // Prueba con diferentes valores de retraso
+  
      
 }}
