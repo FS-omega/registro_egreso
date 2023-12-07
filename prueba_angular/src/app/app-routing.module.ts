@@ -7,18 +7,22 @@ import { VerEgresosComponent } from './componentes/ver-egresos/ver-egresos.compo
 
 
 const routes: Routes = [
+
+  {
+    path: 'crearEgresos',
+    component: EgresosComponent 
+  },
+  {
+    path:'crearEgresos/verEgresos',component:VerEgresosComponent
+  },
+
   {
     path: 'crearUsuario',
     component: FormularioComponent
   },
-  {
-    path: 'crearEgresos',
-    component: EgresosComponent
-  },
-{path:'verEgresos',component:VerEgresosComponent},
-  
-  {path:'verUsuario',component:VerUsuariosComponent},
-  { path: 'crearUsuario/verUsuario', component: VerUsuariosComponent }
+  { 
+    path: 'crearUsuario/verUsuario', component: VerUsuariosComponent 
+  }
 ];
 
 @NgModule({

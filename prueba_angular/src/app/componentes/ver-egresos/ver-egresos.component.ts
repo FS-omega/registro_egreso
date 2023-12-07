@@ -21,7 +21,24 @@ export class VerEgresosComponent {
 
   obteneregreso() {
     this.VerEgresoService.obtener_egresos().subscribe((data:any) => {
-      this.registros = data;
-    });
+      console.log('Respuesta del servicio:', data);
+      if(Array.isArray(data.egresos)){
+      this.registros = data.egresos.map((item: any)=>{
+        return{
+          _id: item._id,
+          descripcion: item.descripcion,
+          id_usuario: item.id_usuario,
+          precio: item.precio,
+        }
+
+      });
+    }else{
+          console.error("el servicio no devolvio un arreglo we :C", data.egresos);
+        }
+    },
+    (error)=>{
+      console.error("error al recibir los datos", error);
+    }
+    );
   }
 }
