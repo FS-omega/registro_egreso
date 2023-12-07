@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormularioService } from 'app/servicios/crearUsuario/formulario.service';
 import { VerUsuariosService } from 'app/servicios/ver-usuarios/ver-usuarios.service';
 
 @Component({
@@ -8,23 +7,31 @@ import { VerUsuariosService } from 'app/servicios/ver-usuarios/ver-usuarios.serv
   styleUrls: ['./ver-usuarios.component.css']
 })
 export class VerUsuariosComponent implements OnInit {
-  
+  usuarios: any[] = [];
   ultimoUsuario: any;
-  constructor(private formularioService: FormularioService,
-    private verUsuarioservice:VerUsuariosService) {}
+
+  constructor(private verUsuariosService: VerUsuariosService) {}
 
   ngOnInit(): void {
-    this.verUsuarioservice.obtenerUsuarios().subscribe(
-      (data:any) => {
-      
-        this.ultimoUsuario = data.usuarios[data.usuarios.length - 1];
-        console.log('Último usuario obtenido:', this.ultimoUsuario);
+   
+    this.verUsuariosService.obtenerUsuarios().subscribe(
+      (data) => {
+       
+        this.usuarios = data;
+        console.log('Usuarios obtenidos:', this.usuarios);
+    
+        // Accede al último usuario
+        this.ultimoUsuario = this.usuarios[this.usuarios.length - 1];
+     
+        
       },
       (error) => {
         console.error('Error al obtener usuarios', error);
       }
     );
-  }
-  }
-  
 
+    setTimeout(() => {
+      this.ultimoUsuario = this.usuarios[this.usuarios.length - 1];
+    }, 500); // Prueba con diferentes valores de retraso
+     
+}}

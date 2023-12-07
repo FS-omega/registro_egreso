@@ -51,6 +51,7 @@ export class FormularioComponent implements OnInit {
       this.registro_enviar.nombre = this.formularioReactivo.nombre.value;
       this.registro_enviar.apellido = this.formularioReactivo.apellido.value;
       this.registro_enviar.rut = this.formularioReactivo.rut.value;
+      this.registro_enviar.correo=this.formularioReactivo.correo.value
 
       this.http.post('https://backend-dos-campos-cft.koyeb.app/api-backend-prueba/usuario/crear-usuario', this.registro_enviar)
         .subscribe(
