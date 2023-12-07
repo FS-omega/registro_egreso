@@ -8,9 +8,9 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th scope="col">Campo1</th>
+        <th scope="col">descripcion</th>
         <th scope="col">Campo2</th>
-        <th scope="col">Campo3</th>
+        <th scope="col">Usuario</th>
         <th scope="col">Campo4</th>
         <th scope="col">campo5</th>
         <th>Accion</th>
@@ -18,15 +18,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let dato of registros">
-        <td>{{dato._id}}</td>
-        <td>{{dato.campo1}}</td>
-        <td>{{dato.campo2}}</td>
-        <td>{{dato.campo3}}</td>
-        <td>{{dato.campo4}}</td>
-        <td>{{dato.campo5}}</td>
+        <td>{{ dato._id }}</td>
+        <td>{{ dato.descripcion }}</td>
+        <td>{{ dato.id_usuario }}</td>
+        <td>{{ dato.precio }}</td>
       </tr>
-      
-      
     </tbody>
   </table>
 

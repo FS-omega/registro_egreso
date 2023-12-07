@@ -15,10 +15,16 @@ const routes: Routes = [
     path: 'crearEgresos',
     component: EgresosComponent
   },
-{path:'verEgresos',component:VerEgresosComponent},
+  {
+    path:'verEgresos',component:VerEgresosComponent
+  },
   
-  {path:'verUsuario',component:VerUsuariosComponent},
-  { path: 'crearUsuario/verUsuario', component: VerUsuariosComponent }
+  { 
+    path:'verUsuario',component:VerUsuariosComponent
+  },
+  { 
+    path: 'crearUsuario/verUsuario', component: VerUsuariosComponent 
+  }
 ];
 
 @NgModule({
