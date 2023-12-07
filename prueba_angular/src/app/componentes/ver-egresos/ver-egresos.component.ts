@@ -31,7 +31,7 @@ export class VerEgresosComponent {
               precio: item.precio,
             };
           });
-          this.mostrarTabla = true; // Mostrar la tabla después de obtener los datos
+          this.mostrarTabla = true; 
         } else {
           console.error('El servicio no devolvió un arreglo:', data.egresos);
         }

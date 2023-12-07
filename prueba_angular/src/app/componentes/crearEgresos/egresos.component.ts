@@ -26,7 +26,7 @@ export class EgresosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Puedes agregar lógica de inicialización si es necesario
+  
   }
 
   crearEgreso() {
