@@ -1,17 +1,15 @@
-<!-- ver-usuarios.component.html -->
-
-<div *ngIf="usuarios.length > 1; else noUsuarios">
+<div *ngIf="usuarios.length > 1; else noUsuarios" class="container mt-4" id="container">
   <h2>Lista de Usuarios:</h2>
-  <div *ngFor="let usuario of [usuarios[usuarios.length - 1]]">
-    <p>Nombre: {{ usuario.nombre }}</p> 
-    <p>Apellido: {{ usuario.apellido }}</p> 
-    <p>RUT: {{ usuario.rut }}</p>
-    <p>Correo: {{ usuario.correo }}</p>
+  <div *ngFor="let usuario of [usuarios[usuarios.length - 1]]" class="card mt-4"id="container">
+    <div class="card-body">
+      <p class="card-text">Nombre: {{ usuario.nombre }}</p>
+      <p class="card-text">Apellido: {{ usuario.apellido }}</p>
+      <p class="card-text">RUT: {{ usuario.rut }}</p>
+      <p class="card-text">Correo: {{ usuario.correo }}</p>
+    </div>
   </div>
-  
-
-  
 </div>
+
 <ng-template #noUsuarios>
-  <p>No hay usuarios disponibles.</p>
+  <p class="mt-4">No hay usuarios disponibles.</p>
 </ng-template>

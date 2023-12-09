@@ -1,34 +1,31 @@
+<div class="container mt-4">
+  <h1>Crear Egreso</h1>
 
-
-
-
-
-  <div>
-    <h1>Crear Egreso</h1>
-    
-    <form [formGroup]="egreso_Formulario">
-      <label for="descripcion" >Descripción:</label>
-      <input type="text" id="descripcion" formControlName="descripcion" />
-      <div *ngIf="egreso_Formulario.controls['descripcion'].hasError('required') && egreso_Formulario.controls['descripcion'].touched">
+  <form [formGroup]="egreso_Formulario">
+    <div class="mb-3">
+      <label for="descripcion" class="form-label">Descripción:</label>
+      <textarea type="text" id="descripcion" formControlName="descripcion" class="form-control" rows="1"></textarea>
+      <div *ngIf="egreso_Formulario.controls['descripcion'].hasError('required') && egreso_Formulario.controls['descripcion'].touched" class="text-danger">
         La descripción es requerida.
       </div>
-      <label for="precio">Precio:</label>
-      <input type="number" id="precio" formControlName="precio" />
-      <div *ngIf="egreso_Formulario.controls['precio'].hasError('required') && egreso_Formulario.controls['precio'].touched">
+    </div>
+
+    <div class="mb-3">
+      <label for="precio" class="form-label">Precio:</label>
+      <input type="number" id="precio" formControlName="precio" class="form-control" />
+      <div *ngIf="egreso_Formulario.controls['precio'].hasError('required') && egreso_Formulario.controls['precio'].touched" class="text-danger">
         El precio es requerido.
       </div>
-      >
-      
-      <label for="id_usuario">ID de Usuario:</label>
-      <input type="text" id="id_usuario" formControlName="id_usuario" />
-      <div *ngIf="egreso_Formulario.controls['id_usuario'].hasError('required') && egreso_Formulario.controls['id_usuario'].touched">
+    </div>
+
+    <div class="mb-3">
+      <label for="id_usuario" class="form-label">ID de Usuario:</label>
+      <input type="text" id="id_usuario" formControlName="id_usuario" class="form-control" />
+      <div *ngIf="egreso_Formulario.controls['id_usuario'].hasError('required') && egreso_Formulario.controls['id_usuario'].touched" class="text-danger">
         El ID de usuario es requerido.
       </div>
+    </div>
 
-      
-  
-      <button type="button" (click)="crearEgreso()">Crear Egreso</button>
-    </form>
-  </div>
-  
-
+    <button type="button" (click)="crearEgreso()" class="btn btn-primary">Crear Egreso</button>
+  </form>
+</div>
