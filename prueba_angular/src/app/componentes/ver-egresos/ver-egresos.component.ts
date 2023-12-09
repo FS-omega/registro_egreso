@@ -49,25 +49,23 @@ export class VerEgresosComponent {
 
   buscarEgresosPorUsuario() {
     const idUsuarioControl = this.formularioBusqueda.get('idUsuario');
-  
-    if (idUsuarioControl) {
-      const idUsuario = idUsuarioControl.value;
-  
-      this.verEgresoService.obtenerEgresosPorUsuario(idUsuario).subscribe(
-        (data: any) => {
-          console.log('Respuesta del servicio:', data);
-          if (Array.isArray(data.egresos)) {
-            this.registros = data.egresos;
-            this.mostrarTabla = true; 
-          } else {
-            console.error('El servicio no devolvió un arreglo:', data.egresos);
-          }
-        },
-        (error) => {
-          console.error('Error al recibir los datos', error);
+
+  if (idUsuarioControl) {
+    const idUsuario = idUsuarioControl.value;
+
+    this.verEgresoService.obtenerEgresosPorUsuario(idUsuario).subscribe(
+      (data: any) => {
+        console.log('Respuesta completa del servicio:', data);
+    
+        if (data && Array.isArray(data.egresos_usuario)) {
+          this.registros = data.egresos_usuario;
+          this.mostrarTabla = true;
+        } else {
+          console.error('La respuesta del servicio no tiene el formato esperado:', data);
         }
-      );
-    } else {
-      console.error('El control de idUsuario es nulo.');
-    }
-  }}
+      },
+      (error) => {
+        console.error('Error al recibir los datos', error);
+      }
+    );
+}}}
