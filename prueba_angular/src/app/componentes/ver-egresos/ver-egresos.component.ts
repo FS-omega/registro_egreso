@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder,Validators,FormGroup } from '@angular/forms';
+import { Component , OnInit} from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { VerEgresoService } from 'app/servicios/ver-egresos/ver-egresos.service';
 
 @Component({
@@ -9,63 +9,94 @@ import { VerEgresoService } from 'app/servicios/ver-egresos/ver-egresos.service'
 })
 export class VerEgresosComponent {
   registros: any[] = [];
-  mostrarTabla: boolean = false;
+  filtroUsuario: string = ''; // Declaración de la variable filtroUsuario
   formularioBusqueda: FormGroup;
 
   constructor(
-    private verEgresoService: VerEgresoService,
+    private VerEgresoService: VerEgresoService,
     private fb: FormBuilder
   ) {
     this.formularioBusqueda = this.fb.group({
-      idUsuario: ['', Validators.required],
+      idUsuario: ['']
     });
   }
+  ngOnInit(): void {
 
-  ngOnInit() {}
-
+this.obtenerEgreso
+    
+    // Lógica de inicialización, puedes llamar a métodos o realizar acciones aquí
+  }
   obtenerEgreso() {
-    this.verEgresoService.obtener_egresos().subscribe(
+    this.VerEgresoService.obtener_egresos().subscribe(
       (data: any) => {
         console.log('Respuesta del servicio:', data);
         if (Array.isArray(data.egresos)) {
           this.registros = data.egresos.map((item: any) => {
+            const id = item.id_usuario ? item.id_usuario._id : '';
+            const nombre = item.id_usuario ? item.id_usuario.nombre : '';
+            const apellido = item.id_usuario ? item.id_usuario.apellido : '';
+            const id_usuario = item.id_usuario ? item.id_usuario.rut : '';
+            const email = item.id_usuario ? item.id_usuario.correo : '';
+
             return {
               _id: item._id,
               descripcion: item.descripcion,
-              id_usuario: item.id_usuario,
               precio: item.precio,
+              rut: id_usuario,
+              nombre: nombre,
+              apellido: apellido,
+              email: email,
+              id: id
             };
           });
-          this.mostrarTabla = true; 
         } else {
-          console.error('El servicio no devolvió un arreglo:', data.egresos);
+          console.error("El servicio no devolvió un arreglo we :C", data.egresos);
         }
       },
-      (error) => {
-        console.error('Error al recibir los datos', error);
+      (error: any) => {
+        console.error("Error al recibir los datos", error);
       }
     );
   }
 
-  buscarEgresosPorUsuario() {
-    const idUsuarioControl = this.formularioBusqueda.get('idUsuario');
+  buscarPorUsuario() {
+    if (this.formularioBusqueda.valid) {
+      const idUsuario = this.formularioBusqueda.get('idUsuario')?.value;
+      if (!idUsuario.trim()) {
+        // Si el campo de filtro está vacío, muestra todos los egresos
+        this.obtenerEgreso();
+      } else {
+        // Utilizamos la nueva función egresos_usuario con el ID del usuario
+        this.VerEgresoService.obtenerEgresosPorUsuario(idUsuario).subscribe(
+          (data: any) => {
+            if (Array.isArray(data.egresos_usuario)) {
+              this.registros = data.egresos_usuario.map((item: any) => {
+                const id = item.id_usuario ? item.id_usuario._id : '';
+                const nombre = item.id_usuario ? item.id_usuario.nombre : '';
+                const apellido = item.id_usuario ? item.id_usuario.apellido : '';
+                const id_usuario = item.id_usuario ? item.id_usuario.rut : '';
+                const email = item.id_usuario ? item.id_usuario.correo : '';
 
-  if (idUsuarioControl) {
-    const idUsuario = idUsuarioControl.value;
-
-    this.verEgresoService.obtenerEgresosPorUsuario(idUsuario).subscribe(
-      (data: any) => {
-        console.log('Respuesta completa del servicio:', data);
-    
-        if (data && Array.isArray(data.egresos_usuario)) {
-          this.registros = data.egresos_usuario;
-          this.mostrarTabla = true;
-        } else {
-          console.error('La respuesta del servicio no tiene el formato esperado:', data);
-        }
-      },
-      (error) => {
-        console.error('Error al recibir los datos', error);
+                return {
+                  _id: item._id,
+                  descripcion: item.descripcion,
+                  precio: item.precio,
+                  rut: id_usuario,
+                  nombre: nombre,
+                  apellido: apellido,
+                  email: email,
+                  id: id
+                };
+              });
+            } else {
+              console.error("El servicio no devolvió un arreglo we :C", data.egresos_usuario);
+            }
+          },
+          (error: any) => {
+            console.error("Error al recibir los datos", error);
+          }
+        );
       }
-    );
-}}}
+    }
+  }
+}

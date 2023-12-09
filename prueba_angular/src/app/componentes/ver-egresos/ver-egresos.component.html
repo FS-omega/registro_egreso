@@ -1,34 +1,39 @@
 <div>
-<h1>mostrar registros</h1>
+  <h1>Mostrar Registros</h1>
 
-
-<button class="btn btn-primary" (click)="obtenerEgreso()"  >Obtener Registros</button>
-<form [formGroup]="formularioBusqueda">
-  <label for="id_usuario">ID del Usuario:</label>
-  <input type="text" formControlName="idUsuario" >
-  <button (click)="buscarEgresosPorUsuario()">Buscar Egresos</button>
-</form>
-<table class="table">
+  <link href="./ver-egresos.component.css" type="txt/css" rel="stylesheet">
+  <form [formGroup]="formularioBusqueda">
+    <label for="idUsuario">ID del Usuario: </label>
+    <input type="text" formControlName="idUsuario" name="id_user">
+    <input type="reset" class="btn btn-danger boton" (click)="obtenerEgreso()">
+    <br>
+    <button type="button" class="btn  btn-warning boton" (click)="buscarPorUsuario()">Buscar por usuario</button>
+    <button class="btn btn-primary boton" (click)="obtenerEgreso()">Obtener Registros</button>
+  </form>
+  <table class="table">
     <thead>
       <tr>
-        <th>ID</th>
-        <th scope="col">descripcion</th>
-        <th scope="col">precio</th>
-        <th scope="col">usuario</th>
-       
-        <th>Accion</th>
+        <th>ID transccion</th>
+        <th scope="col">Descripció producto</th>
+        <th scope="col">Precio producto</th>
+        <th scope="col">Rut Usuario</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">Id usuario</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let dato of registros">
         <td>{{ dato._id }}</td>
         <td>{{ dato.descripcion }}</td>
-        
         <td>{{ dato.precio }}</td>
+        <td>{{ dato.rut }}</td>
+        <td>{{ dato.nombre }}</td>
+        <td>{{ dato.apellido }}</td>
+        <td>{{ dato.id }}</td>
+
+        <!-- Puedes agregar la columna del usuario aquí si lo necesitas -->
       </tr>
     </tbody>
   </table>
-
-
 </div>
-
