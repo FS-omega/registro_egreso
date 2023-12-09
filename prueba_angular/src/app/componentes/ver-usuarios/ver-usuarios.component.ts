@@ -8,24 +8,20 @@ import { VerUsuariosService } from 'app/servicios/ver-usuarios/ver-usuarios.serv
   styleUrls: ['./ver-usuarios.component.css']
 })
 export class VerUsuariosComponent implements OnInit {
-  usuarios: any[]=[];
-  ultimoUsuario: any;
+  usuarios: any[] = [];
 
   constructor(
     private verUsuariosService: VerUsuariosService,
-    
+  
   ) {}
 
   ngOnInit(): void {
-    
-    console.log('Iniciando componente VerUsuariosComponent');
-
+    console.log('Iniciando componente VerUsuariosComponent'); //esto recibe los datos :v
     this.verUsuariosService.obtenerUsuarios().subscribe(
-      
-      (data: any) => { 
+      (data: any) => {
         console.log('Datos obtenidos correctamente');
-        this.actualizarDatos(data); 
-       
+        this.actualizarDatos(data);
+     
       },
       (error) => {
         console.error('Error al obtener usuarios', error);
@@ -33,13 +29,14 @@ export class VerUsuariosComponent implements OnInit {
     );
   }
   
-   actualizarDatos(data: any) {
-    this.usuarios = data.usuarios; 
-  
+   actualizarDatos(data: any) {  //esto basicamente es para que te salga el ultimo usuario agregado recientemente :v
+    this.usuarios = data.usuarios;
     console.log('Usuarios actualizados:', this.usuarios);
-  
-   
-    this.ultimoUsuario = this.usuarios[this.usuarios.length - 1];
-  
-    console.log('Último Usuario:', this.ultimoUsuario);
-  }}
+
+    if (this.usuarios.length > 0) {
+      const ultimoUsuario = this.usuarios[this.usuarios.length - 1];
+      console.log('Último Usuario:', ultimoUsuario);
+    } 
+    
+  }
+}

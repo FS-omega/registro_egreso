@@ -1,26 +1,26 @@
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar">
-    <div class="container-fluid" >
-       
-        <a class="navbar-brand" id="cft" href="#">CFT</a>   
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://cftestatalaricayparinacota.cl">inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://cftestatalaricayparinacota.cl/areas-formativas-2024/">carreras</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="https://cftestatalaricayparinacota.cl/admision-2/">admision</a>
-          </li>
-        </ul>
-      </div>
+    <div class="container-fluid">
+
+        <a class="navbar-brand" id="cft" href="#">CFT</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                        href="https://cftestatalaricayparinacota.cl">inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://cftestatalaricayparinacota.cl/areas-formativas-2024/">carreras</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="https://cftestatalaricayparinacota.cl/admision-2/">admision</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
 
 
@@ -35,12 +35,13 @@
     <div>
         <h1>Formulario</h1>
     </div>
-    <form  action="../egresos/egresos.component.html" [formGroup]="formulario" method="POST">     
-          <!-- INPUT PARA Campo1-->
-          <div class="form-group">
+    <form action="../egresos/egresos.component.html" [formGroup]="formulario" method="POST">
+        <!-- INPUT PARA Campo1-->
+        <div class="form-group">
             <div>
                 <label for="nombre" class="form-label">nombre</label>
-                <input type="text" id="nombre" class="form-control" aria-describedby="passwordHelpBlock" formControlName="nombre">
+                <input type="text" id="nombre" class="form-control" aria-describedby="passwordHelpBlock"
+                    formControlName="nombre">
 
 
                 <!-- Mostrar el error para el campo nombre-->
@@ -54,8 +55,9 @@
         <div class="form-group">
             <div>
                 <label for="apellido" class="form-label">apellido</label>
-                <input type="text" id="apellido" class="form-control" aria-describedby="passwordHelpBlock" formControlName="apellido">
-                
+                <input type="text" id="apellido" class="form-control" aria-describedby="passwordHelpBlock"
+                    formControlName="apellido">
+
                 <small *ngIf=" formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched ">
                     El apellido es requerido
                 </small>
@@ -66,7 +68,8 @@
         <div class="form-group">
             <div>
                 <label for="rut" class="form-label">rut</label>
-                <input type="number" id="rut" class="form-control" aria-describedby="passwordHelpBlock" formControlName="rut">
+                <input type="number" id="rut" class="form-control" aria-describedby="passwordHelpBlock"
+                    formControlName="rut">
 
                 <small *ngIf=" formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched ">
                     El rut es requerido en el campo
@@ -79,7 +82,8 @@
         <div class="form-group">
             <div>
                 <label for="correo" class="form-label">correo</label>
-                <input type="email" id="correo" class="form-control" aria-describedby="passwordHelpBlock" formControlName="correo">
+                <input type="email" id="correo" class="form-control" aria-describedby="passwordHelpBlock"
+                    formControlName="correo">
 
                 <small *ngIf=" formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched ">
                     El correo es necesario
@@ -91,9 +95,10 @@
         <div class="form-group">
             <div>
                 <label for="contraseña" class="form-label">Password</label>
-                <input type="password" id="contraseña" class="form-control" aria-describedby="passwordHelpBlock" formControlName="password">
+                <input type="password" id="contraseña" class="form-control" aria-describedby="passwordHelpBlock"
+                    formControlName="password">
 
-                  
+
                 <small *ngIf=" formularioReactivo.password?.errors?.required && formularioReactivo.password.touched ">
                     la contraseña es requerida
                 </small>
@@ -107,12 +112,8 @@
         <!-- BOTÓN-->
         <div class="form-group">
             <div>
-                <button 
-                class="btn btn-dark" 
-                type="submit"
-                (click)="botonEnviar()"
-                [disabled]="!formulario.valid"
-                >Enviar</button>
+                <button class="btn btn-dark" type="submit" (click)="botonEnviar()"
+                    [disabled]="!formulario.valid">Enviar</button>
             </div>
         </div>
         <!-- FIN BOTÓN-->

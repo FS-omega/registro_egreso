@@ -1,15 +1,19 @@
-<div *ngIf="usuarios.length > 1; else noUsuarios" class="container mt-4" id="container">
-  <h2>Lista de Usuarios:</h2>
-  <div *ngFor="let usuario of [usuarios[usuarios.length - 1]]" class="card mt-4"id="container">
-    <div class="card-body">
-      <p class="card-text">Nombre: {{ usuario.nombre }}</p>
-      <p class="card-text">Apellido: {{ usuario.apellido }}</p>
-      <p class="card-text">RUT: {{ usuario.rut }}</p>
-      <p class="card-text">Correo: {{ usuario.correo }}</p>
-    </div>
-  </div>
+<div *ngIf="usuarios.length > 0; else noUsuarios" class="container mt-4">
+  <h2 class="mb-4">Lista de Usuarios:</h2>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let usuario of usuarios">
+      <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+      <p><strong>Apellido:</strong> {{ usuario.apellido }}</p>
+      <p><strong>RUT:</strong> {{ usuario.rut }}</p>
+      <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+    </li>
+  </ul>
 </div>
-
-<ng-template #noUsuarios>
-  <p class="mt-4">No hay usuarios disponibles.</p>
+<ng-template #noUsuarios class="container mt-4">
+  <p>No hay usuarios disponibles.</p>
 </ng-template>
+
+<!--<p><strong>Nombre:</strong> {{ usuarios[usuarios.length - 1]?.nombre }}</p> 
+      <p><strong>Apellido:</strong> {{ usuarios[usuarios.length - 1]?.apellido }}</p> 
+      <p><strong>RUT:</strong> {{ usuarios[usuarios.length - 1]?.rut }}</p>
+      <p><strong>Correo:</strong> {{ usuarios[usuarios.length - 1]?.correo }}</p>       este es por si solo quieres que se vea 1 :)      -->
