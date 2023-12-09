@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder,Validators,FormGroup } from '@angular/forms';
 import { VerEgresoService } from 'app/servicios/ver-egresos/ver-egresos.service';
 
 @Component({
@@ -10,16 +10,21 @@ import { VerEgresoService } from 'app/servicios/ver-egresos/ver-egresos.service'
 export class VerEgresosComponent {
   registros: any[] = [];
   mostrarTabla: boolean = false;
+  formularioBusqueda: FormGroup;
 
   constructor(
-    private VerEgresoService: VerEgresoService,
+    private verEgresoService: VerEgresoService,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.formularioBusqueda = this.fb.group({
+      idUsuario: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {}
 
-  obteneregreso() {
-    this.VerEgresoService.obtener_egresos().subscribe(
+  obtenerEgreso() {
+    this.verEgresoService.obtener_egresos().subscribe(
       (data: any) => {
         console.log('Respuesta del servicio:', data);
         if (Array.isArray(data.egresos)) {
@@ -41,4 +46,28 @@ export class VerEgresosComponent {
       }
     );
   }
-}
+
+  buscarEgresosPorUsuario() {
+    const idUsuarioControl = this.formularioBusqueda.get('idUsuario');
+  
+    if (idUsuarioControl) {
+      const idUsuario = idUsuarioControl.value;
+  
+      this.verEgresoService.obtenerEgresosPorUsuario(idUsuario).subscribe(
+        (data: any) => {
+          console.log('Respuesta del servicio:', data);
+          if (Array.isArray(data.egresos)) {
+            this.registros = data.egresos;
+            this.mostrarTabla = true; 
+          } else {
+            console.error('El servicio no devolvió un arreglo:', data.egresos);
+          }
+        },
+        (error) => {
+          console.error('Error al recibir los datos', error);
+        }
+      );
+    } else {
+      console.error('El control de idUsuario es nulo.');
+    }
+  }}

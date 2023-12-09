@@ -54,4 +54,20 @@ export class EgresosComponent implements OnInit {
       console.log("El formulario no es válido.");
     }
   }
-}
+  obtenerEgresosPorUsuario(idUsuario: string) {
+    this.egresosService.obtenerEgresosPorUsuario(idUsuario).subscribe(
+      (egresos:any) => {
+        console.log('Egresos del usuario:', egresos);
+        // Haz lo que necesitas con los egresos obtenidos (puede ser mostrarlos en la vista, etc.)
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error al obtener los egresos del usuario:', error);
+  
+        if (error.status === 500) {
+          console.error('Error interno del servidor. Por favor, contacta al soporte.');
+        } else {
+          console.error('Error desconocido. Consulta los detalles del error:', error);
+        }
+      }
+    );
+}}

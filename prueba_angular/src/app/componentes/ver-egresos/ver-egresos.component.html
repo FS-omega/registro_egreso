@@ -2,8 +2,12 @@
 <h1>mostrar registros</h1>
 
 
-<button class="btn btn-primary" (click)="obteneregreso()"  >Obtener Registros</button>
-
+<button class="btn btn-primary" (click)="obtenerEgreso()"  >Obtener Registros</button>
+<form [formGroup]="formularioBusqueda">
+  <label for="idUsuario">ID del Usuario:</label>
+  <input type="text" formControlName="idUsuario" />
+  <button (click)="buscarEgresosPorUsuario()">Buscar Egresos</button>
+</form>
 <table class="table">
     <thead>
       <tr>

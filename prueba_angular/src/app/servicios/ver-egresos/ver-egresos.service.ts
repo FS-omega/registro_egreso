@@ -19,4 +19,8 @@ export class VerEgresoService {
   obtener_egresos() {
     return this.http.get(`${this.url_backend}/obtener-egresos`);
   }
+  obtenerEgresosPorUsuario(idUsuario: string) {
+    const url = `${this.url_backend}/obtener-egresos/usuario/${idUsuario}`;
+    return this.http.get(url);
+  }
 }
