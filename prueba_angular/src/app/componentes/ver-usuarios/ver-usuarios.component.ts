@@ -21,6 +21,7 @@ export class VerUsuariosComponent implements OnInit {
       (data: any) => {
         console.log('Datos obtenidos correctamente');
         this.actualizarDatos(data);
+        this.usuarios.reverse();
      
       },
       (error) => {
