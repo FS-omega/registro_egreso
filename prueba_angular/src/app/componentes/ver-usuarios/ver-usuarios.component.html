@@ -1,11 +1,17 @@
 <!-- ver-usuarios.component.html -->
-<div *ngIf="ultimoUsuario">
-  <h2>Último Usuario Agregado</h2>
-  <p>Nombre: {{ ultimoUsuario.nombre }}</p>
-  <p>Apellido: {{ ultimoUsuario.apellido }}</p>
-  <p>Correo: {{ ultimoUsuario.correo }}</p>
- 
+
+<div *ngIf="usuarios.length > 1; else noUsuarios">
+  <h2>Lista de Usuarios:</h2>
+  <div *ngFor="let usuario of [usuarios[usuarios.length - 1]]">
+    <p>Nombre: {{ usuario.nombre }}</p> 
+    <p>Apellido: {{ usuario.apellido }}</p> 
+    <p>RUT: {{ usuario.rut }}</p>
+    <p>Correo: {{ usuario.correo }}</p>
+  </div>
+  
+
+  
 </div>
-<div *ngIf="!ultimoUsuario">
+<ng-template #noUsuarios>
   <p>No hay usuarios disponibles.</p>
-</div>
+</ng-template>
