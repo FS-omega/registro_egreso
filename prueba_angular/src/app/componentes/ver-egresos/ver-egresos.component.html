@@ -3,9 +3,12 @@
 
   <link href="./ver-egresos.component.css" type="txt/css" rel="stylesheet">
   <form [formGroup]="formularioBusqueda">
-    <label for="idUsuario">ID del Usuario: </label>
-    <input type="text" formControlName="idUsuario" name="id_user">
-    <input type="reset" class="btn btn-danger boton" (click)="obtenerEgreso()">
+    <div class="form-inline">
+      <label for="idUsuario" class="font-weight-bold mr-2">ID del Usuario:</label>
+      <input type="text" id="input_id_usuario" formControlName="idUsuario" name="id_user" class="form-control mr-2">
+      <input type="reset" class="btn btn-danger boton" (click)="obtenerEgreso()">
+    </div>
+    
     <br>
     <button type="button" class="btn  btn-warning boton" (click)="buscarPorUsuario()">Buscar por usuario</button>
     <button class="btn btn-primary boton" (click)="obtenerEgreso()">Obtener Registros</button>
