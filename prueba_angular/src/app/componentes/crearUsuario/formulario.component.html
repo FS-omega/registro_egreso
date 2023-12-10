@@ -27,89 +27,58 @@
         <h1>Formulario</h1>
     </div>
     <form action="../ver-usuarios/ver-usuarios.component.html" [formGroup]="formulario" method="POST">
-        <!-- INPUT PARA Campo1-->
+       
         <div class="form-group">
-            <div>
-                <label for="nombre" class="form-label">nombre</label>
-                <input type="text" id="nombre" class="form-control" aria-describedby="passwordHelpBlock"
-                    formControlName="nombre">
-
-
-                <!-- Mostrar el error para el campo nombre-->
-                <small *ngIf=" formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched ">
-                    El nombre es requerido
-                </small>
-            </div>
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" id="nombre"placeholder="NOMBRE" class="form-control" aria-describedby="passwordHelpBlock"
+                formControlName="nombre">
+            <small *ngIf="formularioReactivo.nombre?.errors?.required && formularioReactivo.nombre.touched">
+                El nombre es requerido
+            </small>
         </div>
-        <!-- FIN INPUT PARA Campo1-->
-        <!-- INPUT PARA Campo2-->
+
+        
         <div class="form-group">
-            <div>
-                <label for="apellido" class="form-label">apellido</label>
-                <input type="text" id="apellido" class="form-control" aria-describedby="passwordHelpBlock"
-                    formControlName="apellido">
-
-                <small *ngIf=" formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched ">
-                    El apellido es requerido
-                </small>
-            </div>
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" id="apellido"placeholder="APELLIDO" class="form-control" aria-describedby="passwordHelpBlock"
+                formControlName="apellido">
+            <small *ngIf="formularioReactivo.apellido?.errors?.required && formularioReactivo.apellido.touched">
+                El apellido es requerido
+            </small>
         </div>
-        <!-- FIN INPUT PARA CAMPO2-->
-        <!-- INPUT PARA Campo3-->
+
         <div class="form-group">
-            <div>
-                <label for="rut" class="form-label">rut</label>
-                <input type="text" id="rut" class="form-control" aria-describedby="passwordHelpBlock"
-                    formControlName="rut">
-
-                <small *ngIf=" formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched ">
-                    El rut es requerido en el campo
-                </small>
-            </div>
+            <label for="rut" class="form-label">RUT</label>
+            <input type="text" id="rut" class="form-control" aria-describedby="passwordHelpBlock"
+                formControlName="rut"placeholder="RUT">
+            <small *ngIf="formularioReactivo.rut?.errors?.required && formularioReactivo.rut.touched">
+                El RUT es requerido en el campo
+            </small>
         </div>
-        <!-- FIN INPUT PARA CAMPO3-->
 
-        <!-- INPUT PARA Campo4-->
+       
         <div class="form-group">
-            <div>
-                <label for="correo" class="form-label">correo</label>
-                <input type="email" id="correo" class="form-control" aria-describedby="passwordHelpBlock"
-                    formControlName="correo">
-
-                <small *ngIf=" formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched ">
-                    El correo es necesario
-                </small>
-            </div>
+            <label for="correo" class="form-label">Correo</label>
+            <input type="email" id="correo" class="form-control" aria-describedby="passwordHelpBlock"
+                formControlName="correo"placeholder="CORREO">
+            <small *ngIf="formularioReactivo.correo?.errors?.required && formularioReactivo.correo.touched">
+                El correo es necesario
+            </small>
         </div>
-        <!-- FIN INPUT PARA CAMPO4-->
-        <!-- INPUT PARA Campo5-->
+
+  
         <div class="form-group">
-            <div>
-                <label for="contraseña" class="form-label">Password</label>
-                <input type="password" id="contraseña" class="form-control" aria-describedby="passwordHelpBlock"
-                    formControlName="password">
-
-
-                <small *ngIf=" formularioReactivo.password?.errors?.required && formularioReactivo.password.touched ">
-                    la contraseña es requerida
-                </small>
-            </div>
+            <label for="contraseña" class="form-label">Contraseña</label>
+            <input type="password" id="contraseña" class="form-control" aria-describedby="passwordHelpBlock"
+                formControlName="password"placeholder="PASSWORD">
+            <small *ngIf="formularioReactivo.password?.errors?.required && formularioReactivo.password.touched">
+                La contraseña es requerida
+            </small>
         </div>
-        <!-- FIN INPUT PARA CAMPO5-->
 
-
-
-
-        <!-- BOTÓN-->
+      
         <div class="form-group">
-            <div>
-                <button class="btn btn-dark" type="submit" (click)="botonEnviar()"
-                    [disabled]="!formulario.valid">Enviar</button>
-            </div>
+            <button class="btn btn-dark" type="submit" (click)="botonEnviar()" [disabled]="!formulario.valid">Enviar</button>
         </div>
-        <!-- FIN BOTÓN-->
-
-
     </form>
-
 </div>
